@@ -84,6 +84,29 @@ const ElegantNavigation = memo(() => {
     setIsMobileMenuOpen(false);
   }, [location.pathname]);
 
+  // Lock background scroll when mobile menu is open
+  useEffect(() => {
+    const root = document.documentElement;
+    const body = document.body;
+    if (isMobileMenuOpen) {
+      root.style.overflow = "hidden";
+      body.style.overflow = "hidden";
+      body.style.touchAction = "none";
+      body.style.setProperty("overscroll-behavior-y", "none");
+    } else {
+      root.style.overflow = "";
+      body.style.overflow = "";
+      body.style.touchAction = "";
+      body.style.removeProperty("overscroll-behavior-y");
+    }
+    return () => {
+      root.style.overflow = "";
+      body.style.overflow = "";
+      body.style.touchAction = "";
+      body.style.removeProperty("overscroll-behavior-y");
+    };
+  }, [isMobileMenuOpen]);
+
   const navItems = [
     { id: "hero", label: "Home" },
     { id: "services", label: "Services" },
@@ -111,7 +134,7 @@ const ElegantNavigation = memo(() => {
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? "bg-black/95 backdrop-blur-sm border-b border-gray-800/50"
+            ? "bg-black/95 backdrop-blur-none md:backdrop-blur-sm border-b border-gray-800/50"
             : "bg-transparent"
         }`}
       >
@@ -194,7 +217,7 @@ const ElegantNavigation = memo(() => {
 
       {/* Simple Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="fixed inset-0 z-40 lg:hidden">
+        <div className="fixed inset-0 z-[60] lg:hidden">
           <div
             className="absolute inset-0 bg-black/95 backdrop-blur-xl"
             onClick={() => setIsMobileMenuOpen(false)}
