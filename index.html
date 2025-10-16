@@ -8,7 +8,6 @@
     <!-- Primary SEO -->
     <meta name="description" content="Custom Shopify themes, performance optimization, and conversion-focused development by Shopify Dev Studio." />
     <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://ccae2fe61ce14511bd648fa8bc992c2e-e1eaafe9-85ea-41cb-9ef8-d6a0c9.fly.dev/" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
@@ -64,6 +63,19 @@
     <meta name="msapplication-tap-highlight" content="no" />
 
     <!-- Structured Data -->
+    <script type="module">
+      const id = import.meta.env?.VITE_GA_ID;
+      if (id) {
+        const s = document.createElement('script');
+        s.src = `https://www.googletagmanager.com/gtag/js?id=${id}`;
+        s.async = true;
+        document.head.appendChild(s);
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){window.dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', id);
+      }
+    </script>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
