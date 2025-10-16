@@ -20,13 +20,14 @@ const ElegantHero = () => {
   const isInView = useInView(containerRef, { once: true });
   const [calendlyOpen, setCalendlyOpen] = useState(false);
   const [showCursor, setShowCursor] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
-    const isMobile = window.matchMedia("(max-width: 767px)").matches;
+    setIsMobile(window.matchMedia("(max-width: 767px)").matches);
     const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const hasFinePointer = window.matchMedia("(pointer: fine)").matches;
-    if (isMobile || prefersReduced || !hasFinePointer) return;
+    if (window.matchMedia("(max-width: 767px)").matches || prefersReduced || !hasFinePointer) return;
 
     let idleId: any;
     const enable = () => setShowCursor(true);
@@ -65,16 +66,20 @@ const ElegantHero = () => {
     }
   };
 
+  const yVal: any = isMobile ? 0 : y;
+  const opacityVal: any = isMobile ? 1 : opacity;
+  const scaleVal: any = isMobile ? 1 : scale;
+
   return (
     <motion.section
       ref={containerRef}
       className="relative min-h-screen flex items-center justify-center overflow-hidden gpu-accelerated motion-safe"
       style={{
-        y,
-        opacity,
-        scale,
-        willChange: "transform, opacity",
-        transform: "translateZ(0)",
+        y: yVal,
+        opacity: opacityVal,
+        scale: scaleVal,
+        willChange: isMobile ? "auto" : "transform, opacity",
+        transform: isMobile ? undefined : "translateZ(0)",
       }}
     >
       {/* Elegant background */}
