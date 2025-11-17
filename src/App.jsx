@@ -1,6 +1,7 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { lazy, Suspense, memo } from "react";
+import { LanguageProvider } from "./contexts/LanguageContext";
 
 // Import only critical pages directly for instant loading
 import Index from "./pages/Index";
@@ -46,10 +47,11 @@ const queryClient = new QueryClient({
 });
 
 const App = memo(() => (
-  <QueryClientProvider client={queryClient}>
-    <BrowserRouter
-      future={{ v7_startTransition: true, v7_relativeSplatPath: true }}
-    >
+  <LanguageProvider>
+    <QueryClientProvider client={queryClient}>
+      <BrowserRouter
+        future={{ v7_startTransition: true, v7_relativeSplatPath: true }}
+      >
       <Suspense fallback={null}>
         <ScrollToTop />
       </Suspense>
@@ -156,7 +158,8 @@ const App = memo(() => (
         />
       </Routes>
     </BrowserRouter>
-  </QueryClientProvider>
+    </QueryClientProvider>
+  </LanguageProvider>
 ));
 
 App.displayName = "App";
