@@ -36,8 +36,7 @@ const Footer = () => {
               </span>
             </div>
             <p className="text-gray-400 font-light max-w-md text-sm leading-relaxed">
-              Premium Shopify theme development agency creating exceptional
-              e-commerce experiences that drive results and exceed expectations.
+              {t('footer.description')}
             </p>
           </motion.div>
 
