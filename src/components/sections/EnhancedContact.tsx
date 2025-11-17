@@ -540,7 +540,7 @@ const EnhancedContact = () => {
                 {
                   icon: "📧",
                   title: "Email Us",
-                  content: "hello@shopifydevstudio.com",
+                  content: "consult@shopifydevstudio.tech",
                   color: "#00FFB2",
                 },
                 {
