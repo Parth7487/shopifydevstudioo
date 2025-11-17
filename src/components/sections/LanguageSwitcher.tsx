@@ -1,6 +1,6 @@
-import { useState, useRef, useEffect } from 'react';
-import { useLanguage } from '../../contexts/LanguageContext';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useRef, useEffect } from "react";
+import { useLanguage } from "../../contexts/LanguageContext";
+import { motion, AnimatePresence } from "framer-motion";
 
 const LanguageSwitcher = () => {
   const { currentLanguage, setLanguage, languages } = useLanguage();
@@ -15,15 +15,15 @@ const LanguageSwitcher = () => {
     };
 
     if (isOpen) {
-      document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener("mousedown", handleClickOutside);
     }
 
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [isOpen]);
 
-  const currentLang = languages.find(l => l.code === currentLanguage);
+  const currentLang = languages.find((l) => l.code === currentLanguage);
 
   return (
     <div ref={ref} className="relative">
@@ -54,8 +54,8 @@ const LanguageSwitcher = () => {
                   }}
                   className={`w-full text-left px-4 py-3 text-sm transition-colors duration-150 ${
                     currentLanguage === lang.code
-                      ? 'bg-beige/10 text-beige font-medium'
-                      : 'text-gray-300 hover:bg-beige/5 hover:text-beige'
+                      ? "bg-beige/10 text-beige font-medium"
+                      : "text-gray-300 hover:bg-beige/5 hover:text-beige"
                   }`}
                 >
                   <div className="font-medium">{lang.nativeName}</div>

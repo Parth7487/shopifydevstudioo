@@ -29,14 +29,16 @@ const Footer = () => {
           >
             <div className="flex items-center space-x-2 sm:space-x-3 mb-4">
               <div className="w-8 h-8 sm:w-10 sm:h-10 bg-beige rounded-lg flex items-center justify-center flex-shrink-0">
-                <span className="text-black font-bold text-sm sm:text-base">S</span>
+                <span className="text-black font-bold text-sm sm:text-base">
+                  S
+                </span>
               </div>
               <span className="text-gray-100 font-semibold text-base sm:text-lg">
                 Shopify Dev Studio
               </span>
             </div>
             <p className="text-gray-400 font-light max-w-md text-xs sm:text-sm leading-relaxed">
-              {t('footer.description')}
+              {t("footer.description")}
             </p>
           </motion.div>
 
@@ -48,14 +50,16 @@ const Footer = () => {
             viewport={{ once: true }}
             className="pb-4 sm:pb-0"
           >
-            <h3 className="text-white font-bold mb-4 text-sm sm:text-base">{t('footer.resources')}</h3>
+            <h3 className="text-white font-bold mb-4 text-sm sm:text-base">
+              {t("footer.resources")}
+            </h3>
             <ul className="space-y-2">
               <li>
                 <button
                   onClick={() => navigate("/documentation")}
                   className="text-gray-400 hover:text-beige transition-colors duration-200 text-xs sm:text-sm w-full text-left py-1.5 px-0"
                 >
-                  {t('footer.documentation')}
+                  {t("footer.documentation")}
                 </button>
               </li>
               <li>
@@ -63,7 +67,7 @@ const Footer = () => {
                   onClick={() => navigate("/support")}
                   className="text-gray-400 hover:text-beige transition-colors duration-200 text-xs sm:text-sm w-full text-left py-1.5 px-0"
                 >
-                  {t('footer.support')}
+                  {t("footer.support")}
                 </button>
               </li>
               <li>
@@ -71,7 +75,7 @@ const Footer = () => {
                   onClick={() => navigate("/faq")}
                   className="text-gray-400 hover:text-beige transition-colors duration-200 text-xs sm:text-sm w-full text-left py-1.5 px-0"
                 >
-                  {t('footer.faq')}
+                  {t("footer.faq")}
                 </button>
               </li>
             </ul>
@@ -84,7 +88,9 @@ const Footer = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <h4 className="text-white font-bold mb-4 text-sm sm:text-base">{t('footer.getInTouch')}</h4>
+            <h4 className="text-white font-bold mb-4 text-sm sm:text-base">
+              {t("footer.getInTouch")}
+            </h4>
             <ul className="space-y-2 mb-6 sm:mb-8">
               <li>
                 <a
@@ -102,9 +108,15 @@ const Footer = () => {
                   shopifydevstudioo@gmail.com
                 </a>
               </li>
-              <li className="text-gray-400 text-xs sm:text-sm pt-2">{t('footer.remoteWorldwide')}</li>
-              <li className="text-gray-400 text-xs sm:text-sm">{t('footer.responseTime')}</li>
-              <li className="text-gray-400 text-xs sm:text-sm">{t('footer.available')}</li>
+              <li className="text-gray-400 text-xs sm:text-sm pt-2">
+                {t("footer.remoteWorldwide")}
+              </li>
+              <li className="text-gray-400 text-xs sm:text-sm">
+                {t("footer.responseTime")}
+              </li>
+              <li className="text-gray-400 text-xs sm:text-sm">
+                {t("footer.available")}
+              </li>
             </ul>
 
             {/* Urgent Project Box - Mobile optimized */}
@@ -112,11 +124,11 @@ const Footer = () => {
               <div className="flex items-center gap-2 mb-2">
                 <span className="text-beige text-base sm:text-lg">🔥</span>
                 <span className="text-beige text-xs sm:text-sm font-bold">
-                  {t('footer.urgentProject')}
+                  {t("footer.urgentProject")}
                 </span>
               </div>
               <p className="text-gray-300 text-xs leading-4">
-                {t('footer.emergencySpaces')}
+                {t("footer.emergencySpaces")}
               </p>
             </div>
           </motion.div>
@@ -137,8 +149,12 @@ const Footer = () => {
               className="h-12 sm:h-14 w-auto object-contain"
             />
             <div className="flex flex-col">
-              <span className="text-beige text-xs sm:text-sm font-semibold">Official</span>
-              <span className="text-gray-300 text-xs sm:text-sm">Shopify Partner</span>
+              <span className="text-beige text-xs sm:text-sm font-semibold">
+                Official
+              </span>
+              <span className="text-gray-300 text-xs sm:text-sm">
+                Shopify Partner
+              </span>
             </div>
           </div>
         </motion.div>
@@ -152,7 +168,7 @@ const Footer = () => {
           viewport={{ once: true }}
         >
           <p className="text-gray-400 text-xs text-center sm:text-left w-full sm:w-auto">
-            {t('footer.copyright', { year: currentYear })}
+            {t("footer.copyright", { year: currentYear })}
           </p>
         </motion.div>
       </div>

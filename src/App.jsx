@@ -52,112 +52,112 @@ const App = memo(() => (
       <BrowserRouter
         future={{ v7_startTransition: true, v7_relativeSplatPath: true }}
       >
-      <Suspense fallback={null}>
-        <ScrollToTop />
-      </Suspense>
-      <Routes>
-        <Route path="/" element={<Index />} />
-        <Route
-          path="/services"
-          element={
-            <Suspense fallback={<MinimalLoader />}>
-              <Services />
-            </Suspense>
-          }
-        />
-        <Route
-          path="/process"
-          element={
-            <Suspense fallback={<MinimalLoader />}>
-              <Process />
-            </Suspense>
-          }
-        />
-        <Route
-          path="/about"
-          element={
-            <Suspense fallback={<MinimalLoader />}>
-              <About />
-            </Suspense>
-          }
-        />
-        <Route
-          path="/work"
-          element={
-            <Suspense fallback={<MinimalLoader />}>
-              <Work />
-            </Suspense>
-          }
-        />
-        {/* Redirect old Work2 routes to new Work page */}
-        <Route path="/work2" element={<Navigate to="/work" replace />} />
-        <Route path="/Work2" element={<Navigate to="/work" replace />} />
-        <Route
-          path="/blog"
-          element={
-            <Suspense fallback={<MinimalLoader />}>
-              <Blog />
-            </Suspense>
-          }
-        />
-        <Route
-          path="/documentation"
-          element={
-            <Suspense fallback={<MinimalLoader />}>
-              <Documentation />
-            </Suspense>
-          }
-        />
-        <Route
-          path="/support"
-          element={
-            <Suspense fallback={<MinimalLoader />}>
-              <Support />
-            </Suspense>
-          }
-        />
-        <Route
-          path="/faq"
-          element={
-            <Suspense fallback={<MinimalLoader />}>
-              <FAQ />
-            </Suspense>
-          }
-        />
-        <Route
-          path="/partners"
-          element={
-            <Suspense fallback={<MinimalLoader />}>
-              <Partners />
-            </Suspense>
-          }
-        />
-        <Route
-          path="/favicon-export"
-          element={
-            <Suspense fallback={<MinimalLoader />}>
-              <FaviconExport />
-            </Suspense>
-          }
-        />
-        <Route
-          path="/admin"
-          element={
-            <Suspense fallback={<MinimalLoader />}>
-              <Admin />
-            </Suspense>
-          }
-        />
-        <Route
-          path="*"
-          element={
-            <Suspense fallback={<MinimalLoader />}>
-              <NotFound />
-            </Suspense>
-          }
-        />
-      </Routes>
-    </BrowserRouter>
+        <Suspense fallback={null}>
+          <ScrollToTop />
+        </Suspense>
+        <Routes>
+          <Route path="/" element={<Index />} />
+          <Route
+            path="/services"
+            element={
+              <Suspense fallback={<MinimalLoader />}>
+                <Services />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/process"
+            element={
+              <Suspense fallback={<MinimalLoader />}>
+                <Process />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/about"
+            element={
+              <Suspense fallback={<MinimalLoader />}>
+                <About />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/work"
+            element={
+              <Suspense fallback={<MinimalLoader />}>
+                <Work />
+              </Suspense>
+            }
+          />
+          {/* Redirect old Work2 routes to new Work page */}
+          <Route path="/work2" element={<Navigate to="/work" replace />} />
+          <Route path="/Work2" element={<Navigate to="/work" replace />} />
+          <Route
+            path="/blog"
+            element={
+              <Suspense fallback={<MinimalLoader />}>
+                <Blog />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/documentation"
+            element={
+              <Suspense fallback={<MinimalLoader />}>
+                <Documentation />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/support"
+            element={
+              <Suspense fallback={<MinimalLoader />}>
+                <Support />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/faq"
+            element={
+              <Suspense fallback={<MinimalLoader />}>
+                <FAQ />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/partners"
+            element={
+              <Suspense fallback={<MinimalLoader />}>
+                <Partners />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/favicon-export"
+            element={
+              <Suspense fallback={<MinimalLoader />}>
+                <FaviconExport />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/admin"
+            element={
+              <Suspense fallback={<MinimalLoader />}>
+                <Admin />
+              </Suspense>
+            }
+          />
+          <Route
+            path="*"
+            element={
+              <Suspense fallback={<MinimalLoader />}>
+                <NotFound />
+              </Suspense>
+            }
+          />
+        </Routes>
+      </BrowserRouter>
     </QueryClientProvider>
   </LanguageProvider>
 ));
