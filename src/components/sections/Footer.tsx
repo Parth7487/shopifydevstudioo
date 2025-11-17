@@ -84,7 +84,7 @@ const Footer = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <h4 className="text-white font-bold mb-6 text-base">Get in Touch</h4>
+            <h4 className="text-white font-bold mb-6 text-base">{t('footer.getInTouch')}</h4>
             <ul className="space-y-3 mb-8">
               <li>
                 <a
