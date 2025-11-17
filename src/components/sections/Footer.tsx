@@ -147,7 +147,7 @@ const Footer = () => {
           viewport={{ once: true }}
         >
           <p className="text-gray-400 text-xs sm:text-sm text-center sm:text-left w-full sm:w-auto">
-            © {currentYear} Shopify Dev Studio. All rights reserved.
+            {t('footer.copyright', { year: currentYear })}
           </p>
         </motion.div>
       </div>
