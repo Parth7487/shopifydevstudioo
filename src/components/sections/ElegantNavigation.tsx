@@ -181,6 +181,8 @@ const ElegantNavigation = memo(() => {
                   )}
                 </button>
               ))}
+              <div className="w-px h-6 bg-gray-800/50"></div>
+              <LanguageSwitcher />
             </div>
 
             {/* Desktop CTA */}
