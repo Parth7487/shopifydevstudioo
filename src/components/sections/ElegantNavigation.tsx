@@ -151,9 +151,9 @@ const ElegantNavigation = memo(() => {
                   S
                 </span>
                 <svg className="absolute -top-2 left-1/2 -translate-x-1/2 text-beige w-6 h-4 sm:w-7 sm:h-4 pointer-events-none" viewBox="0 0 24 14" fill="none" aria-hidden="true">
-                  <path d="M3 11 A9 9 0 0 1 21 11" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" />
-                  <path d="M6 11 v3" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" />
-                  <path d="M18 11 v3" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" />
+                  <path d="M3 11 A9 9 0 0 1 21 11" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+                  <path d="M6 11 v3" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+                  <path d="M18 11 v3" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
                 </svg>
               </div>
               <span className="text-gray-100 font-medium text-base sm:text-lg tracking-wide">
@@ -233,9 +233,9 @@ const ElegantNavigation = memo(() => {
                 <div className="w-8 h-8 border border-beige/60 rounded relative flex items-center justify-center">
                   <span className="text-beige font-medium text-xs">S</span>
                   <svg className="absolute -top-2 left-1/2 -translate-x-1/2 text-beige w-6 h-4 pointer-events-none" viewBox="0 0 24 14" fill="none" aria-hidden="true">
-                    <path d="M3 11 A9 9 0 0 1 21 11" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" />
-                    <path d="M6 11 v3" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" />
-                    <path d="M18 11 v3" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" />
+                    <path d="M3 11 A9 9 0 0 1 21 11" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+                    <path d="M6 11 v3" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+                    <path d="M18 11 v3" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
                   </svg>
                 </div>
                 <span className="text-gray-100 font-medium text-base tracking-wide">
