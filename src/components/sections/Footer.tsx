@@ -48,14 +48,14 @@ const Footer = () => {
             viewport={{ once: true }}
             className="pb-4 sm:pb-0"
           >
-            <h3 className="text-white font-bold mb-6 text-base">Resources</h3>
+            <h3 className="text-white font-bold mb-6 text-base">{t('footer.resources')}</h3>
             <ul className="space-y-3">
               <li>
                 <button
                   onClick={() => navigate("/documentation")}
                   className="text-gray-400 hover:text-beige transition-colors duration-200 text-sm w-full text-left py-2 px-0 hover:px-2"
                 >
-                  Documentation
+                  {t('footer.documentation')}
                 </button>
               </li>
               <li>
@@ -63,7 +63,7 @@ const Footer = () => {
                   onClick={() => navigate("/support")}
                   className="text-gray-400 hover:text-beige transition-colors duration-200 text-sm w-full text-left py-2 px-0 hover:px-2"
                 >
-                  Support
+                  {t('footer.support')}
                 </button>
               </li>
               <li>
@@ -71,7 +71,7 @@ const Footer = () => {
                   onClick={() => navigate("/faq")}
                   className="text-gray-400 hover:text-beige transition-colors duration-200 text-sm w-full text-left py-2 px-0 hover:px-2"
                 >
-                  FAQ
+                  {t('footer.faq')}
                 </button>
               </li>
             </ul>
