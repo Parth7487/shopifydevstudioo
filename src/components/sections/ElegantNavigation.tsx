@@ -242,12 +242,15 @@ const ElegantNavigation = memo(() => {
                   Dev Studio
                 </span>
               </div>
-              <button
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="text-gray-300 hover:text-beige transition-colors p-2"
-              >
-                <X className="w-6 h-6" />
-              </button>
+              <div className="flex items-center gap-3">
+                <LanguageSwitcher />
+                <button
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="text-gray-300 hover:text-beige transition-colors p-2"
+                >
+                  <X className="w-6 h-6" />
+                </button>
+              </div>
             </div>
 
             {/* Mobile navigation */}
