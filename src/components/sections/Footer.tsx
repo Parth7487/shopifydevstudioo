@@ -118,9 +118,9 @@ const Footer = () => {
                   shopifydevstudioo@gmail.com
                 </a>
               </li>
-              <li className="text-gray-400 text-sm pt-2">Remote, Worldwide</li>
-              <li className="text-gray-400 text-sm">24h Response Time</li>
-              <li className="text-gray-400 text-sm">Available 7 days/week</li>
+              <li className="text-gray-400 text-sm pt-2">{t('footer.remoteWorldwide')}</li>
+              <li className="text-gray-400 text-sm">{t('footer.responseTime')}</li>
+              <li className="text-gray-400 text-sm">{t('footer.available')}</li>
             </ul>
 
             {/* Urgent Project Box - Mobile optimized */}
@@ -128,11 +128,11 @@ const Footer = () => {
               <div className="flex items-center gap-2 mb-3">
                 <span className="text-beige text-lg">🔥</span>
                 <span className="text-beige text-sm font-bold">
-                  Urgent Project?
+                  {t('footer.urgentProject')}
                 </span>
               </div>
               <p className="text-gray-300 text-xs leading-5">
-                2 emergency spaces available
+                {t('footer.emergencySpaces')}
               </p>
             </div>
           </motion.div>
