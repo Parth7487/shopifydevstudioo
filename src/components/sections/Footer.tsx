@@ -122,9 +122,30 @@ const Footer = () => {
           </motion.div>
         </div>
 
+        {/* Shopify Partner Badge */}
+        <motion.div
+          className="border-t border-mint/20 mt-6 sm:mt-8 md:mt-10 pt-6 sm:pt-8 flex flex-col sm:flex-row justify-center items-center gap-4 mb-6"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.25 }}
+          viewport={{ once: true }}
+        >
+          <div className="flex items-center gap-3">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets%2F4cd739e8b5a04122bfbd47151e3cded1%2F024fabda4204446088ae68ce1291c2ca?format=webp&width=800"
+              alt="Official Shopify Partner"
+              className="h-12 sm:h-14 w-auto object-contain"
+            />
+            <div className="flex flex-col">
+              <span className="text-beige text-xs sm:text-sm font-semibold">Official</span>
+              <span className="text-gray-300 text-xs sm:text-sm">Shopify Partner</span>
+            </div>
+          </div>
+        </motion.div>
+
         {/* Bottom section - Mobile optimized */}
         <motion.div
-          className="border-t border-mint/20 mt-6 sm:mt-8 md:mt-10 pt-6 sm:pt-8 flex flex-col sm:flex-row justify-between items-center gap-4"
+          className="flex flex-col sm:flex-row justify-center items-center gap-4"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
