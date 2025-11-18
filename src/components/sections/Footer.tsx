@@ -1,9 +1,11 @@
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "../../hooks/useTranslation";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -13,98 +15,87 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-charcoal border-t border-beige/20 py-8 sm:py-12">
-      <div className="max-w-7xl mx-auto mobile-safe-padding">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
-          {/* Logo and description */}
+    <footer className="bg-charcoal border-t border-beige/20 py-8 sm:py-12 md:py-16">
+      <div className="max-w-7xl mx-auto mobile-safe-padding px-4 sm:px-6">
+        {/* Mobile Optimized Layout */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-8">
+          {/* Logo and description - Full width on mobile */}
           <motion.div
-            className="sm:col-span-2 lg:col-span-2"
+            className="col-span-1 sm:col-span-2 lg:col-span-2 pb-6 sm:pb-0"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <div className="flex items-center space-x-2 mb-4">
-              <div className="w-7 h-7 sm:w-8 sm:h-8 bg-beige rounded-lg flex items-center justify-center">
-                <span className="text-black font-bold text-xs sm:text-sm">
+            <div className="flex items-center space-x-2 sm:space-x-3 mb-4">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 bg-beige rounded-lg flex items-center justify-center flex-shrink-0">
+                <span className="text-black font-bold text-sm sm:text-base">
                   S
                 </span>
               </div>
-              <span className="text-gray-100 font-medium responsive-text-base">
+              <span className="text-gray-100 font-semibold text-base sm:text-lg">
                 Shopify Dev Studio
               </span>
             </div>
-            <p className="text-gray-400 font-light max-w-md text-sm sm:text-base leading-relaxed">
-              Premium Shopify theme development agency creating exceptional
-              e-commerce experiences that drive results and exceed expectations.
+            <p className="text-gray-400 font-light max-w-md text-xs sm:text-sm leading-relaxed">
+              {t("footer.description")}
             </p>
           </motion.div>
 
-
-          {/* Resources */}
+          {/* Resources - Mobile optimized spacing */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.15 }}
             viewport={{ once: true }}
-            className="pb-5 -mb-px"
+            className="pb-4 sm:pb-0"
           >
-            <h3 className="text-white font-semibold mb-4 text-sm sm:text-base">
-              Resources
+            <h3 className="text-white font-bold mb-4 text-sm sm:text-base">
+              {t("footer.resources")}
             </h3>
             <ul className="space-y-2">
-              <li
-                onClick={() => navigate("/documentation")}
-                className="text-gray-400 hover:text-beige transition-colors duration-150 cursor-pointer"
-              >
-                Documentation
+              <li>
+                <button
+                  onClick={() => navigate("/documentation")}
+                  className="text-gray-400 hover:text-beige transition-colors duration-200 text-xs sm:text-sm w-full text-left py-1.5 px-0"
+                >
+                  {t("footer.documentation")}
+                </button>
               </li>
-              <li
-                onClick={() => navigate("/support")}
-                className="text-gray-400 hover:text-beige transition-colors duration-150 cursor-pointer mt-2"
-              >
-                Support
+              <li>
+                <button
+                  onClick={() => navigate("/support")}
+                  className="text-gray-400 hover:text-beige transition-colors duration-200 text-xs sm:text-sm w-full text-left py-1.5 px-0"
+                >
+                  {t("footer.support")}
+                </button>
               </li>
-              <li
-                onClick={() => navigate("/faq")}
-                className="text-gray-400 hover:text-beige transition-colors duration-150 cursor-pointer mt-2"
-              >
-                FAQ
+              <li>
+                <button
+                  onClick={() => navigate("/faq")}
+                  className="text-gray-400 hover:text-beige transition-colors duration-200 text-xs sm:text-sm w-full text-left py-1.5 px-0"
+                >
+                  {t("footer.faq")}
+                </button>
               </li>
             </ul>
           </motion.div>
 
-          {/* Contact info */}
+          {/* Contact info - Mobile optimized with larger touch targets */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <h4 className="text-white font-semibold mb-4 sm:mb-6 text-sm sm:text-base">
-              Get in Touch
+            <h4 className="text-white font-bold mb-4 text-sm sm:text-base">
+              {t("footer.getInTouch")}
             </h4>
-            <ul className="space-y-2 sm:space-y-3 mb-6 sm:mb-8">
-              <li>
-                <a
-                  href="mailto:hello@shopifydevstudio.com"
-                  className="text-gray-400 hover:text-beige transition-colors duration-200 text-sm sm:text-base"
-                >
-                  hello@shopifydevstudio.com
-                </a>
-              </li>
-              <li>
-                <a
-                  href="mailto:contact@shopifydevstudio.tech"
-                  className="text-gray-400 hover:text-beige transition-colors duration-200 text-sm sm:text-base"
-                >
-                  contact@shopifydevstudio.tech
-                </a>
-              </li>
+            <ul className="space-y-2 mb-6 sm:mb-8">
               <li>
                 <a
                   href="mailto:consult@shopifydevstudio.tech"
-                  className="text-gray-400 hover:text-beige transition-colors duration-200 text-sm sm:text-base"
+                  className="text-gray-400 hover:text-beige transition-colors duration-200 text-xs sm:text-sm py-1.5 block"
                 >
                   consult@shopifydevstudio.tech
                 </a>
@@ -112,47 +103,72 @@ const Footer = () => {
               <li>
                 <a
                   href="mailto:shopifydevstudioo@gmail.com"
-                  className="text-gray-400 hover:text-beige transition-colors duration-200 text-sm sm:text-base"
+                  className="text-gray-400 hover:text-beige transition-colors duration-200 text-xs sm:text-sm py-1.5 block"
                 >
                   shopifydevstudioo@gmail.com
                 </a>
               </li>
-              <li className="text-gray-400 text-sm sm:text-base">
-                Remote, Worldwide
+              <li className="text-gray-400 text-xs sm:text-sm pt-2">
+                {t("footer.remoteWorldwide")}
               </li>
-              <li className="text-gray-400 text-sm sm:text-base">
-                24h Response Time
+              <li className="text-gray-400 text-xs sm:text-sm">
+                {t("footer.responseTime")}
               </li>
-              <li className="text-gray-400 text-sm sm:text-base">
-                Available 7 days/week
+              <li className="text-gray-400 text-xs sm:text-sm">
+                {t("footer.available")}
               </li>
             </ul>
 
-            {/* Urgent Project Box */}
+            {/* Urgent Project Box - Mobile optimized */}
             <div className="bg-gradient-to-r from-beige/20 to-clay/20 border border-beige/30 rounded-lg p-3 sm:p-4">
               <div className="flex items-center gap-2 mb-2">
                 <span className="text-beige text-base sm:text-lg">🔥</span>
-                <span className="text-beige text-xs sm:text-sm font-semibold">
-                  Urgent Project?
+                <span className="text-beige text-xs sm:text-sm font-bold">
+                  {t("footer.urgentProject")}
                 </span>
               </div>
               <p className="text-gray-300 text-xs leading-4">
-                2 emergency spaces available
+                {t("footer.emergencySpaces")}
               </p>
             </div>
           </motion.div>
         </div>
 
-        {/* Bottom section */}
+        {/* Shopify Partner Badge */}
         <motion.div
-          className="border-t border-mint/20 mt-6 sm:mt-8 pt-6 sm:pt-8 flex flex-col sm:flex-row justify-between items-center gap-4"
+          className="border-t border-mint/20 mt-6 sm:mt-8 md:mt-10 pt-6 sm:pt-8 flex flex-col sm:flex-row justify-center items-center gap-4 mb-6"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.25 }}
+          viewport={{ once: true }}
+        >
+          <div className="flex items-center gap-3">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets%2F4cd739e8b5a04122bfbd47151e3cded1%2F024fabda4204446088ae68ce1291c2ca?format=webp&width=800"
+              alt="Official Shopify Partner"
+              className="h-12 sm:h-14 w-auto object-contain"
+            />
+            <div className="flex flex-col">
+              <span className="text-beige text-xs sm:text-sm font-semibold">
+                Official
+              </span>
+              <span className="text-gray-300 text-xs sm:text-sm">
+                Shopify Partner
+              </span>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Bottom section - Mobile optimized */}
+        <motion.div
+          className="flex flex-col sm:flex-row justify-center items-center gap-4"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
           viewport={{ once: true }}
         >
-          <p className="text-gray-400 text-xs sm:text-sm text-center sm:text-left">
-            © {currentYear} Shopify Dev Studio. All rights reserved.
+          <p className="text-gray-400 text-xs text-center sm:text-left w-full sm:w-auto">
+            {t("footer.copyright", { year: currentYear })}
           </p>
         </motion.div>
       </div>

@@ -3,6 +3,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import CalendlyModal from "./CalendlyModal";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 const ElegantNavigation = memo(() => {
   const navigate = useNavigate();
@@ -84,6 +85,29 @@ const ElegantNavigation = memo(() => {
     setIsMobileMenuOpen(false);
   }, [location.pathname]);
 
+  // Lock background scroll when mobile menu is open
+  useEffect(() => {
+    const root = document.documentElement;
+    const body = document.body;
+    if (isMobileMenuOpen) {
+      root.style.overflow = "hidden";
+      body.style.overflow = "hidden";
+      body.style.touchAction = "none";
+      body.style.setProperty("overscroll-behavior-y", "none");
+    } else {
+      root.style.overflow = "";
+      body.style.overflow = "";
+      body.style.touchAction = "";
+      body.style.removeProperty("overscroll-behavior-y");
+    }
+    return () => {
+      root.style.overflow = "";
+      body.style.overflow = "";
+      body.style.touchAction = "";
+      body.style.removeProperty("overscroll-behavior-y");
+    };
+  }, [isMobileMenuOpen]);
+
   const navItems = [
     { id: "hero", label: "Home" },
     { id: "services", label: "Services" },
@@ -111,7 +135,7 @@ const ElegantNavigation = memo(() => {
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? "bg-black/95 backdrop-blur-sm border-b border-gray-800/50"
+            ? "bg-black/95 backdrop-blur-none md:backdrop-blur-sm border-b border-gray-800/50"
             : "bg-transparent"
         }`}
       >
@@ -126,10 +150,30 @@ const ElegantNavigation = memo(() => {
                 <span className="text-beige font-medium text-xs sm:text-sm">
                   S
                 </span>
-                <svg className="absolute -top-2 left-1/2 -translate-x-1/2 text-beige w-6 h-4 sm:w-7 sm:h-4 pointer-events-none" viewBox="0 0 24 14" fill="none" aria-hidden="true">
-                  <path d="M3 11 A9 9 0 0 1 21 11" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" />
-                  <path d="M6 11 v3" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" />
-                  <path d="M18 11 v3" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" />
+                <svg
+                  className="absolute -top-2 left-1/2 -translate-x-1/2 text-beige w-6 h-4 sm:w-7 sm:h-4 pointer-events-none"
+                  viewBox="0 0 24 14"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M3 11 A9 9 0 0 1 21 11"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                  />
+                  <path
+                    d="M6 11 v3"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                  />
+                  <path
+                    d="M18 11 v3"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                  />
                 </svg>
               </div>
               <span className="text-gray-100 font-medium text-base sm:text-lg tracking-wide">
@@ -157,13 +201,17 @@ const ElegantNavigation = memo(() => {
                   )}
                 </button>
               ))}
+              <div className="w-px h-6 bg-gray-800/50"></div>
+              <LanguageSwitcher />
             </div>
 
             {/* Desktop CTA */}
             <div className="hidden sm:block">
               <Button
                 onClick={() => {
-                  const url = (import.meta as any).env?.VITE_CALENDLY_URL as string | undefined;
+                  const url = (import.meta as any).env?.VITE_CALENDLY_URL as
+                    | string
+                    | undefined;
                   if (url) {
                     setCalendlyOpen(true);
                   } else {
@@ -194,7 +242,7 @@ const ElegantNavigation = memo(() => {
 
       {/* Simple Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="fixed inset-0 z-40 lg:hidden">
+        <div className="fixed inset-0 z-[60] lg:hidden">
           <div
             className="absolute inset-0 bg-black/95 backdrop-blur-xl"
             onClick={() => setIsMobileMenuOpen(false)}
@@ -206,22 +254,45 @@ const ElegantNavigation = memo(() => {
               <div className="flex items-center space-x-3">
                 <div className="w-8 h-8 border border-beige/60 rounded relative flex items-center justify-center">
                   <span className="text-beige font-medium text-xs">S</span>
-                  <svg className="absolute -top-2 left-1/2 -translate-x-1/2 text-beige w-6 h-4 pointer-events-none" viewBox="0 0 24 14" fill="none" aria-hidden="true">
-                    <path d="M3 11 A9 9 0 0 1 21 11" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" />
-                    <path d="M6 11 v3" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" />
-                    <path d="M18 11 v3" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" />
+                  <svg
+                    className="absolute -top-2 left-1/2 -translate-x-1/2 text-beige w-6 h-4 pointer-events-none"
+                    viewBox="0 0 24 14"
+                    fill="none"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M3 11 A9 9 0 0 1 21 11"
+                      stroke="currentColor"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                    />
+                    <path
+                      d="M6 11 v3"
+                      stroke="currentColor"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                    />
+                    <path
+                      d="M18 11 v3"
+                      stroke="currentColor"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                    />
                   </svg>
                 </div>
                 <span className="text-gray-100 font-medium text-base tracking-wide">
                   Dev Studio
                 </span>
               </div>
-              <button
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="text-gray-300 hover:text-beige transition-colors p-2"
-              >
-                <X className="w-6 h-6" />
-              </button>
+              <div className="flex items-center gap-3">
+                <LanguageSwitcher />
+                <button
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="text-gray-300 hover:text-beige transition-colors p-2"
+                >
+                  <X className="w-6 h-6" />
+                </button>
+              </div>
             </div>
 
             {/* Mobile navigation */}
@@ -257,7 +328,12 @@ const ElegantNavigation = memo(() => {
           </div>
         </div>
       )}
-      <CalendlyModal open={calendlyOpen && Boolean((import.meta as any).env?.VITE_CALENDLY_URL)} onClose={() => setCalendlyOpen(false)} />
+      <CalendlyModal
+        open={
+          calendlyOpen && Boolean((import.meta as any).env?.VITE_CALENDLY_URL)
+        }
+        onClose={() => setCalendlyOpen(false)}
+      />
     </>
   );
 });
